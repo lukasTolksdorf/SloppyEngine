@@ -38,6 +38,8 @@ macro(add_library_without_mut name)
             PRIVATE src
             )
     set_property(TARGET ${name} PROPERTY CXX_STANDARD 14)
+    set_target_properties(${name} PROPERTIES LINKER_LANGUAGE CXX)
+
 
 endmacro()
 

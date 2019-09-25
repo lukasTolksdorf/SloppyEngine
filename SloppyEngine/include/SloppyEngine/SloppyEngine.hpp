@@ -1,0 +1,8 @@
+//
+// Created by lukas on 25.09.19.
+//
+
+#ifndef SLOPPYENGINE_SLOPPYENGINE_HPP_
+#define SLOPPYENGINE_SLOPPYENGINE_HPP_
+
+#endif // SLOPPYENGINE_SLOPPYENGINE_HPP_

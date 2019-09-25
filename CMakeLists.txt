@@ -43,6 +43,8 @@ endif()
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/common/cmake/modules")
 include(addNewLibraryTarget)
 
+add_subdirectory(SloppyEngine)
+
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTS)
     add_subdirectory("extern/googletest")
 
