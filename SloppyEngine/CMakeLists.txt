@@ -5,4 +5,5 @@ add_library_without_mut(SloppyEngineLib
         src/SloppyEngine.cc
 )
 
-target_link_libraries_without_mut(SloppyEngineLib)
+target_link_libraries_without_mut(SloppyEngineLib
+        spdlog)
