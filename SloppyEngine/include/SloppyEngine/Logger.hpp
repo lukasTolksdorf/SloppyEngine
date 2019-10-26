@@ -6,29 +6,28 @@
 #define SLOPPYENGINE_LOGGER_HPP_
 
 #include "spdlog/spdlog.h"
-#include "spdlog/fmt/ostr.h"
 
 namespace Sloppy {
 namespace Core {
 
-class Logger {
-public:
-  static void Init();
+std::shared_ptr<spdlog::logger> getCoreLogger();
+std::shared_ptr<spdlog::logger> getClientLogger();
 
-  static std::shared_ptr<spdlog::logger> getCoreLogger() {
-    return coreLogger_;
-  }
+} // namespace Core
+} // namespace Sloppy
 
-  static std::shared_ptr<spdlog::logger> getClientLogger() {
-    return clientLogger_;
-  }
+// clang-format off
+#define SLPY_CORE_TRACE(...)     ::Sloppy::Core::getCoreLogger()->trace(__VA_VARGS__)
+#define SLPY_CORE_INFO(...)      ::Sloppy::Core::getCoreLogger()->info(__VA_VARGS__)
+#define SLPY_CORE_WARN(...)      ::Sloppy::Core::getCoreLogger()->warn(__VA_VARGS__)
+#define SLPY_CORE_ERROR(...)     ::Sloppy::Core::getCoreLogger()->error(__VA_VARGS__)
+#define SLPY_CORE_CRITICAL(...)  ::Sloppy::Core::getCoreLogger()->critical(__VA_VARGS__)
 
-private:
-  static std::shared_ptr<spdlog::logger> coreLogger_;
-  static std::shared_ptr<spdlog::logger> clientLogger_;
-};
-
-}
-}
+#define SLPY_TRACE(...)     ::Sloppy::Core::getClientLogger()->trace(__VA_VARGS__)
+#define SLPY_INFO(...)      ::Sloppy::Core::getClientLogger()->info(__VA_VARGS__)
+#define SLPY_WARN(...)      ::Sloppy::Core::getClientLogger()->warn(__VA_VARGS__)
+#define SLPY_ERROR(...)     ::Sloppy::Core::getClientLogger()->error(__VA_VARGS__)
+#define SLPY_CRITICAL(...)  ::Sloppy::Core::getClientLogger()->critical(__VA_VARGS__)
+// clang-format on
 
 #endif // SLOPPYENGINE_LOGGER_HPP_
