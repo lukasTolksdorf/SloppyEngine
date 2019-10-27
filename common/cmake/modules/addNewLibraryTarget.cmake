@@ -19,7 +19,7 @@ macro(add_library_with_mut name)
             )
 
     target_compile_definitions(${name}_mut PUBLIC BUILD_FOR_UNITTEST)
-    set_property(TARGET ${name}_mut PROPERTY CXX_STANDARD 14)
+    set_property(TARGET ${name}_mut PROPERTY CXX_STANDARD 17)
     set_target_properties(${name}_mut PROPERTIES LINKER_LANGUAGE CXX)
 
 endmacro()
@@ -37,7 +37,7 @@ macro(add_library_without_mut name)
             $<INSTALL_INTERFACE:include>
             PRIVATE src
             )
-    set_property(TARGET ${name} PROPERTY CXX_STANDARD 14)
+    set_property(TARGET ${name} PROPERTY CXX_STANDARD 17)
     set_target_properties(${name} PROPERTIES LINKER_LANGUAGE CXX)
 
 
