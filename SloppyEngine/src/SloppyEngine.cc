@@ -4,13 +4,20 @@
 
 #include "SloppyEngine/SloppyEngine.hpp"
 
+#include "SloppyEngine/Logger.hpp"
+
 #include <iostream>
 
 namespace Sloppy {
-namespace Core {
+
+Application* Application::instance_ = nullptr;
 
 void Application::run() {
-  std::cout << "Application was run\n";
+  SLPY_CORE_TRACE("Application started");
 }
+Application::Application() {
+
+  instance_ = this;
 }
-}
+
+} // namespace Sloppy

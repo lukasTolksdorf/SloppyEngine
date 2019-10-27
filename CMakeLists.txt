@@ -57,3 +57,6 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTS)
             gtest_disable_pthreads gtest_force_shared_crt gtest_hide_internal_symbols
     )
 endif()
+
+
+add_subdirectory(ExampleApplication)

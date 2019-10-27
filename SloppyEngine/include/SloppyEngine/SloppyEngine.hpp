@@ -1,19 +1,25 @@
-//
-// Created by lukas on 25.09.19.
-//
-
 #ifndef SLOPPYENGINE_SLOPPYENGINE_HPP_
 #define SLOPPYENGINE_SLOPPYENGINE_HPP_
 
-namespace Sloppy {
+#include "Logger.hpp"
 
-namespace Core {
+namespace Sloppy {
 
 class Application {
 public:
+  Application();
+  virtual ~Application() = default;
+
   void run();
+private:
+  bool running_;
+
+  static Application* instance_;
 };
-} // namespace Core
+
+// Shall be defined by client
+Application* CreateApplication();
+
 } // namespace Sloppy
 
 #endif // SLOPPYENGINE_SLOPPYENGINE_HPP_
