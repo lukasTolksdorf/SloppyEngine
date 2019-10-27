@@ -1,6 +1,6 @@
-#include <SloppyEngine/SloppyEngine.hpp>
+#include <SloppyEngine/Core/SloppyEngine.hpp>
 
-#include <SloppyEngine/SloppyMain.hpp>
+#include <SloppyEngine/Core/SloppyMain.hpp>
 
 class ExampleApp : public Sloppy::Application
 {

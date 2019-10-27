@@ -1,12 +1,6 @@
-//
-// Created by lukas on 16.10.19.
-//
+#include "SloppyEngine/Core/SloppyEngine.hpp"
 
-#include "SloppyEngine/SloppyEngine.hpp"
-
-#include "SloppyEngine/Logger.hpp"
-
-#include <iostream>
+#include "SloppyEngine/Core/Logger.hpp"
 
 namespace Sloppy {
 
