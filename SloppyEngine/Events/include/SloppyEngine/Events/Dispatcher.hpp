@@ -9,10 +9,10 @@ class Dispatcher {
 public:
   explicit Dispatcher(Event &event);
 
-  template <typename EventType, typename CallbackType>
-  bool Dispatch(const CallbackType &callback) {
-    if (event_.GetEventType() == EventType::GetStaticType()) {
-      event_.handled = callback(static_cast<CallbackType &>(event_));
+  template <typename EventType, typename HandlerType>
+  bool dispatch(const HandlerType &fcn) {
+    if (event_.getEventType() == EventType::getStaticType()) {
+      event_.handled = fcn(static_cast<EventType &>(event_));
       return true;
     }
     return false;

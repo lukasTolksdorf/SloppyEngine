@@ -2,7 +2,6 @@
 #define SLOPPYENGINE_EVENTS_EVENT_HPP_
 
 #include <string>
-#include <string_view>
 
 namespace Sloppy::Events {
 
@@ -18,23 +17,31 @@ enum class EventType {
 
 class Event {
 public:
-  Event():handled(false){
-    //Intentionally left empty
-  };
+  Event()
+      : handled(false){
+            // Intentionally left empty
+        };
 
   virtual ~Event() = default;
 
-  [[nodiscard]] virtual EventType GetEventType() const = 0;
-  [[nodiscard]] virtual const std::string_view GetName() const = 0;
-  [[nodiscard]] virtual std::string ToString() const = 0;
+  [[nodiscard]] virtual EventType getEventType() const = 0;
+  [[nodiscard]] virtual std::string getName() const = 0;
+
+  [[nodiscard]] virtual std::string toString() const { return getName();}
 
   bool handled;
 };
 
-std::ostream& operator<<(std::ostream& os, const Event& e){
-  return os << e.GetName();
-}
+//std::ostream &operator<<(std::ostream &os, const Event &e) {
+//  return os << e.toString();
+//}
 
-} // namespace Sloppy
+// Helper macro for easy event definition
+#define GENERATE_EVENT_TYPE_INFO(type)                                         \
+  static EventType getStaticType() { return EventType::type; }                 \
+  virtual EventType getEventType() const override { return getStaticType(); }  \
+  virtual std::string getName() const override { return #type; }
+
+} // namespace Sloppy::Events
 
 #endif // SLOPPYENGINE_EVENTS_EVENT_HPP_
