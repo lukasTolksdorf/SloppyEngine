@@ -2,7 +2,7 @@
 // Created by lukas on 16.10.19.
 //
 
-#include "SloppyEngine/Core/Logger.hpp"
+#include "../include/SloppyEngine/Utilities/Logger.hpp"
 
 #include "spdlog/sinks/stdout_color_sinks.h"
 

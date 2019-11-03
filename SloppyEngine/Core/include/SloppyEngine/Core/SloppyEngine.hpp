@@ -1,7 +1,7 @@
 #ifndef SLOPPYENGINE_SLOPPYENGINE_HPP_
 #define SLOPPYENGINE_SLOPPYENGINE_HPP_
 
-#include "Logger.hpp"
+#include "../../../../Utilities/include/SloppyEngine/Utilities/Logger.hpp"
 
 #include "Platform/WindowInterface.hpp"
 

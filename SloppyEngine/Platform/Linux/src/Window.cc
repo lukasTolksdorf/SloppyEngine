@@ -1,15 +1,17 @@
 
 #include "Platform/Window.hpp"
 
+#include "SloppyEngine/Utilities/Logger.hpp"
+
 namespace Sloppy::Platform {
 
 WindowImpl::WindowImpl(const WindowProps &props)
     : data_{props.title, props.width, props.height, nullptr} {
 
   int success = glfwInit();
+  SLPY_CORE_TRACE("GLFW Windows init executed with {}", success);
 
   window_ = glfwCreateWindow(static_cast<int>(data_.width), static_cast<int>(data_.height), data_.title.c_str(), nullptr, nullptr);
-  //intentionally left empty
 }
 
 void WindowImpl::onUpdate() {}

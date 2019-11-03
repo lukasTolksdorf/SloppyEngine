@@ -1,11 +1,6 @@
-//
-// Created by lukas on 16.10.19.
-//
-
 #ifndef SLOPPYENGINE_LOGGER_HPP_
 #define SLOPPYENGINE_LOGGER_HPP_
 
-#include "SloppyEngine.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Sloppy {

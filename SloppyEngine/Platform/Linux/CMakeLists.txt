@@ -6,4 +6,5 @@ add_library_without_mut(peripheryLib
 target_link_libraries_without_mut(peripheryLib
         peripheryInterfaceLib
         glfw
+        SloppyEngingeUtilitiesLib
         )

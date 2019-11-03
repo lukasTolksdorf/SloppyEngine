@@ -1,4 +1,5 @@
 add_subdirectory(Core)
 add_subdirectory(Events)
+add_subdirectory(Utilities)
 add_subdirectory(Platform/Desktop)
 add_subdirectory(Platform/Linux)

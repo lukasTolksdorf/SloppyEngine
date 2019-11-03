@@ -1,6 +1,6 @@
 #include "SloppyEngine/Core/SloppyEngine.hpp"
 
-#include "SloppyEngine/Core/Logger.hpp"
+#include "../../Utilities/include/SloppyEngine/Utilities/Logger.hpp"
 
 namespace Sloppy {
 
