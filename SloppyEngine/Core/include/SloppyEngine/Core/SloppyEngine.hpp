@@ -3,6 +3,10 @@
 
 #include "Logger.hpp"
 
+#include "Platform/WindowInterface.hpp"
+
+#include <memory>
+
 namespace Sloppy {
 
 class Application {
@@ -11,14 +15,16 @@ public:
   virtual ~Application() = default;
 
   void run();
+  void onEvent(Events::Event& e);
 private:
+  std::unique_ptr<Platform::Window> window_;
   bool running_;
 
   static Application* instance_;
 };
 
 // Shall be defined by client
-Application* CreateApplication();
+extern Application* CreateApplication();
 
 } // namespace Sloppy
 

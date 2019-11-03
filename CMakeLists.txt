@@ -47,6 +47,7 @@ add_subdirectory(SloppyEngine)
 
 # external dependencies
 add_subdirectory(extern/spdlog)
+add_subdirectory(extern/glfw)
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTS)
     add_subdirectory("extern/googletest")

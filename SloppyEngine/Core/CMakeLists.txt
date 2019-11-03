@@ -6,4 +6,5 @@ add_library_without_mut(SloppyEngineCoreLib
 )
 
 target_link_libraries_without_mut(SloppyEngineCoreLib
+        peripheryInterfaceLib
         spdlog)
