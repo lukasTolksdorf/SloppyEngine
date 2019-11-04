@@ -2,15 +2,16 @@
 #define SLOPPYENGINE_LINUX_WINDOW_HPP_
 
 #include "Platform/WindowInterface.hpp"
+#include <memory>
 
-#include "GLFW/glfw3.h"
+#include "SloppyEngine/OpenGL/OpenGLContext.hpp"
 
 namespace Sloppy::Platform {
 class WindowImpl : public Window {
 
 public:
-  explicit WindowImpl(const WindowProps& props );
-  ~WindowImpl() override = default;
+  explicit WindowImpl(const WindowProps &props);
+  ~WindowImpl() override;
 
   void onUpdate() override;
 
@@ -23,18 +24,17 @@ public:
   void *getNativeWindow() const override;
 
 private:
-  GLFWwindow* window_;
-
-
   struct WindowData {
-  std::string title;
-  unsigned int width;
-  unsigned int height;
-  std::function<void(Sloppy::Events::Event &)> eventCallback_;
+    std::string title;
+    unsigned int width;
+    unsigned int height;
+    std::function<void(Sloppy::Events::Event &)> eventCallback;
   };
 
   WindowData data_;
 
+  GLFWwindow *window_;
+  std::unique_ptr<OpenGLContext> context_;
 };
 
 } // namespace Sloppy::Platform
