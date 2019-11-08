@@ -17,8 +17,8 @@ public:
   void pushOverlay(std::unique_ptr<Layer> &&layer);
   std::optional<std::vector<std::unique_ptr<Layer>>::iterator>
   findLayer(Layer *layer);
-  std::optional<std::unique_ptr<Layer>> popLayer(Layer *layer);
-  std::optional<std::unique_ptr<Layer>> popOverlay(Layer *layer);
+  std::optional<std::unique_ptr<Layer>> popLayer(Layer::IdType layer);
+  std::optional<std::unique_ptr<Layer>> popOverlay(Layer::IdType layer);
 
   std::vector<std::unique_ptr<Layer>>::iterator begin();
   std::vector<std::unique_ptr<Layer>>::iterator end();

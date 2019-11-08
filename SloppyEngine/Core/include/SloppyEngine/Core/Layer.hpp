@@ -12,6 +12,9 @@ public:
   explicit Layer(const std::string &name = "Layer");
   virtual ~Layer() = default;
 
+  using IdType  = const Layer *;
+  IdType getId() { return this; };
+
   virtual void onAttach(){};
   virtual void onDetach(){};
   virtual void onUpdate(){};

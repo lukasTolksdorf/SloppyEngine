@@ -19,6 +19,8 @@ TEST(UtLayerStack, Destruction) {
   std::unique_ptr<::Sloppy::Core::Layer> l1_unique =
       std::make_unique<MockLayer>();
   auto l1_raw = l1_unique.get();
+
+  auto l1_id = l1_unique->getId();
   {
 
     auto stack = ::Sloppy::Core::LayerStack();
@@ -30,11 +32,17 @@ TEST(UtLayerStack, Destruction) {
     EXPECT_CALL(*dynamic_cast<MockLayer *>(l1_raw), onAttach()).Times(0);
     EXPECT_CALL(*dynamic_cast<MockLayer *>(l1_raw), onDetach()).Times(1);
     EXPECT_CALL(*dynamic_cast<MockLayer *>(l1_raw), onDestruction()).Times(0);
-    l1_unique = std::move(*(stack.popLayer(l1_raw)));
+    l1_unique = std::move(*(stack.popLayer(l1_id)));
   }
   // l1 going out of scope
   EXPECT_CALL(*dynamic_cast<MockLayer *>(l1_raw), onDestruction()).Times(1);
 }
 
+TEST(UtLayerStack, PopLayer) {
+  using ::Mocks::Sloppy::Core::MockLayer;
+
+  std::unique_ptr<::Sloppy::Core::Layer> l1_unqiue =
+      std::make_unique<MockLayer>();
+}
 
 } // namespace Test::Sloppy::Core

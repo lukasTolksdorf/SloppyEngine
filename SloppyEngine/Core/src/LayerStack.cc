@@ -36,7 +36,7 @@ LayerStack::findLayer(Layer *layer) {
   }
 }
 
-std::optional<std::unique_ptr<Layer>> LayerStack::popLayer(Layer *layer) {
+std::optional<std::unique_ptr<Layer>> LayerStack::popLayer(Layer::IdType layer) {
   auto position =
       std::find_if(layers_.begin(), layers_.begin() + layerInsertIndex_,
                    [layer](auto &element) { return element.get() == layer; });
@@ -50,7 +50,7 @@ std::optional<std::unique_ptr<Layer>> LayerStack::popLayer(Layer *layer) {
   }
 }
 
-std::optional<std::unique_ptr<Layer>> LayerStack::popOverlay(Layer *layer) {
+std::optional<std::unique_ptr<Layer>> LayerStack::popOverlay(Layer::IdType layer) {
   auto position =
       std::find_if(layers_.begin() + layerInsertIndex_, layers_.end(),
                    [layer](auto &element) { return element.get() == layer; });
